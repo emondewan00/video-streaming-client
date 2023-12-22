@@ -2,26 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .price th {
+    @apply px-4 py-6  mx-auto text-center;
+  }
+  .price td {
+    @apply px-4 py-6 border border-purple-800 mx-auto text-center;
+  }
+  .menu-cs .menu-item {
+    @apply p-4 md:py-8 font-sans cursor-pointer w-full md:hover:text-secondary transition-all duration-200 delay-100 ease-linear;
+  }
+  .all-videos thead tr th,
+  .all-videos tbody tr td {
+    @apply py-4;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+
+.profile {
+  display: grid;
+  grid-template-columns: 208px auto;
+}
+
+.bg-gradient {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    166deg,
+    rgba(23, 33, 46, 1) 28%,
+    rgba(6, 1, 1, 1) 47%,
+    rgba(4, 28, 50, 1) 72%,
+    rgba(22, 33, 62, 1) 80%
+  );
+  min-height: 100vh;
 }

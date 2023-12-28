@@ -18,7 +18,6 @@ const Banner = () => {
         "http://localhost:5000/videos?showInBanner=show",
         { cache: "no-cache" }
       );
-      console.log("hello");
       const data = await res.json();
       setBanner(data.data.videos);
     };

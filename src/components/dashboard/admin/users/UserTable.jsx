@@ -1,10 +1,10 @@
-import { data } from "autoprefixer";
 import moment from "moment";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
-const UserTable = ({ users }) => {
+const UserTable = ({}) => {
+  const [users, setUsers] = useState([]);
   const deleteUser = (id) => {
     const deleteU = async () => {
       const res = await fetch(`http://localhost:5000/users/delete/${id}`, {
@@ -14,6 +14,15 @@ const UserTable = ({ users }) => {
     };
     deleteU();
   };
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const res = await fetch("http://localhost:5000/users");
+      const data = await res.json();
+      setUsers(data?.data?.users);
+    };
+    getUsers();
+  }, []);
   return (
     <div className="overflow-x-auto">
       <table className="table table-xs all-videos text-white">

@@ -1,9 +1,19 @@
 import moment from "moment";
 import Link from "next/link";
-import React from "react";
+import { useEffect, useState } from "react";
 import { FaPen, FaTrash } from "react-icons/fa";
 
-const VideoTable = ({ videos }) => {
+const VideoTable = () => {
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    const getVideos = async () => {
+      const res = await fetch("http://localhost:5000/videos");
+      const data = await res.json();
+      setVideos(data?.data?.videos);
+    };
+    getVideos();
+  }, []);
+
   const deleteVideo = (id) => {
     const deleteV = async () => {
       const res = await fetch(`http://localhost:5000/videos/delete/${id}`, {

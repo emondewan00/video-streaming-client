@@ -1,7 +1,7 @@
 const get4Videos = async (url) => {
   try {
     const videos = await fetch(
-      `http://localhost:5000/videos?${url}&limitdocument=4`,
+      `https://video-streaming-api.vercel.app/videos?${url}&limitdocument=4`,
       {  cache: "no-store" }
     );
     const result = await videos.json();

@@ -1,7 +1,7 @@
 const getMovies = async (limit) => {
   try {
     const videos = await fetch(
-      `http://localhost:5000/videos?fields=-__v,-createdAt${limit}`,
+      `https://video-streaming-api.vercel.app/videos?fields=-__v,-createdAt${limit}`,
       {cache:"no-cache"}
     );
     const result = await videos.json();

@@ -36,10 +36,10 @@ const AdminHome = () => {
   useEffect(() => {
     const getTopVideos = async () => {
       const res = await fetch(
-        "http://localhost:5000/videos?_sort=views&_order=desc&limit=5&page=1"
+        "https://video-streaming-api.vercel.app/videos?_sort=views&_order=desc&limit=5&page=1"
       );
       const user = await fetch(
-        "http://localhost:5000/users?_sort=createdAt&_order=desc&limitdocument=5"
+        "https://video-streaming-api.vercel.app/users?_sort=createdAt&_order=desc&limitdocument=5"
       );
       const userResult = await user.json();
       setTopUser(userResult.data.users);

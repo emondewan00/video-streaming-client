@@ -7,7 +7,7 @@ const Header = () => {
     e.preventDefault();
     const getVideosBySearch = async () => {
       const res = await fetch(
-        `http://localhost:5000/videos/search?text=${search}`
+        `https://video-streaming-api.vercel.app/videos/search?text=${search}`
       );
       const data = await res.json();
       setVideos(data?.data?.result);

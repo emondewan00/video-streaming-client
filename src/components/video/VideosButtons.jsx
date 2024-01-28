@@ -10,7 +10,7 @@ const VideosButtons = ({ id, isLike }) => {
   const email = "johndeo@gamil.com";
   //like handler
   const likeHandler = async () => {
-    const res = await fetch(`http://localhost:5000/likes`, {
+    const res = await fetch(`https://video-streaming-api.vercel.app/likes`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

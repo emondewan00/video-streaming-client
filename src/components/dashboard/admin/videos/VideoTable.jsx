@@ -7,7 +7,7 @@ const VideoTable = () => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     const getVideos = async () => {
-      const res = await fetch("http://localhost:5000/videos");
+      const res = await fetch("https://video-streaming-api.vercel.app/videos");
       const data = await res.json();
       setVideos(data?.data?.videos);
     };
@@ -16,7 +16,7 @@ const VideoTable = () => {
 
   const deleteVideo = (id) => {
     const deleteV = async () => {
-      const res = await fetch(`http://localhost:5000/videos/delete/${id}`, {
+      const res = await fetch(`https://video-streaming-api.vercel.app/videos/delete/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();

@@ -7,7 +7,7 @@ const VideoForm = ({ videoId }) => {
   const router = useRouter();
   const { register, handleSubmit, reset } = useForm({
     defaultValues: async () => {
-      const res = await fetch(`http://localhost:5000/videos/single/${videoId}`);
+      const res = await fetch(`https://video-streaming-api.vercel.app/videos/single/${videoId}`);
       const data = await res.json();
       return data;
     },
@@ -24,7 +24,7 @@ const VideoForm = ({ videoId }) => {
       visibility,
       showInBanner,
     } = data;
-    const res = await fetch(`http://localhost:5000/videos/edit/${videoId}`, {
+    const res = await fetch(`https://video-streaming-api.vercel.app/videos/edit/${videoId}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',

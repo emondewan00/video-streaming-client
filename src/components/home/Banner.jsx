@@ -15,7 +15,7 @@ const Banner = () => {
   useEffect(() => {
     const getBanners = async () => {
       const res = await fetch(
-        "http://localhost:5000/videos?showInBanner=show",
+        "https://video-streaming-api.vercel.app/videos?showInBanner=show",
         { cache: "no-cache" }
       );
       const data = await res.json();

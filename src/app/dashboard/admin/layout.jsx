@@ -13,7 +13,7 @@ const AdimLayout = ({ children }) => {
   useEffect(() => {
     if (!userEmail) return setUser(null);
     const getUser = async () => {
-      const res = await fetch(`http://localhost:5000/users/${userEmail}`, {
+      const res = await fetch(`https://video-streaming-api.vercel.app/users/${userEmail}`, {
         cache: "force-cache",
         next: {
           revalidate: 1000,

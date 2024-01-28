@@ -4,7 +4,7 @@ import React from "react";
 
 const WatchLater = async () => {
   const historys = await getHistorysLikesWatchLaterVideos(
-    "http://localhost:5000/history?email=admin@gmail.com"
+    "https://video-streaming-api.vercel.app/history?email=admin@gmail.com"
   );
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

@@ -7,7 +7,7 @@ const UserTable = ({}) => {
   const [users, setUsers] = useState([]);
   const deleteUser = (id) => {
     const deleteU = async () => {
-      const res = await fetch(`http://localhost:5000/users/delete/${id}`, {
+      const res = await fetch(`https://video-streaming-api.vercel.app/users/delete/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -17,7 +17,7 @@ const UserTable = ({}) => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch("https://video-streaming-api.vercel.app/users");
       const data = await res.json();
       setUsers(data?.data?.users);
     };

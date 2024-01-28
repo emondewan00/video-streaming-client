@@ -10,7 +10,7 @@ const AllMovies = () => {
   const [pageUrl, setPageUrl] = useState(`limit=15&page=${page}`);
   const [category, setCategory] = useState("&");
   const [searchText, setSearchText] = useState("");
-  const baseUrl = "http://localhost:5000/videos?";
+  const baseUrl = "https://video-streaming-api.vercel.app/videos?";
   const [searchUrl, setSearchUrl] = useState(baseUrl + pageUrl + category);
 
   // useEffect(() => {

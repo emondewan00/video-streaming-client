@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const User = async () => {
   const historys = await getHistorysLikesWatchLaterVideos(
-    "http://localhost:5000/history?email=admin@gmail.com&limit=4",
+    "https://video-streaming-api.vercel.app/history?email=admin@gmail.com&limit=4",
    
   );
   return (

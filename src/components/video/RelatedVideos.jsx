@@ -10,7 +10,7 @@ const RelatedVideos = ({ currentVideo }) => {
       //get related Video
       const tagsInStr = tags?.join(",");
       const getRelated = await fetch(
-        `http://localhost:5000/videos/tags?tags=${tagsInStr}&id=${id}&category=${category}`,
+        `https://video-streaming-api.vercel.app/videos/tags?tags=${tagsInStr}&id=${id}&category=${category}`,
         { cache: "no-cache" }
       );
       const related = await getRelated.json();

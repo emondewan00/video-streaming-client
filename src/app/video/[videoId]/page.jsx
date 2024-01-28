@@ -11,7 +11,7 @@ const NoSSR = dynamic(() => import("@/components/Player"), { ssr: false });
 
 const Video = ({ params }) => {
   const [video, setVideo] = useState({});
-  const socket = io("http://localhost:5000");
+  const socket = io("https://video-streaming-api.vercel.app");
   const isLike = false;
 
   socket.on("connect", () => {
@@ -26,7 +26,7 @@ const Video = ({ params }) => {
     const getVideo = async () => {
       //get single video
       const res = await fetch(
-        `http://localhost:5000/videos/single/${params.videoId}`
+        `https://video-streaming-api.vercel.app/videos/single/${params.videoId}`
       );
       const data = await res.json();
       setVideo(data);

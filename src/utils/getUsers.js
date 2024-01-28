@@ -1,6 +1,6 @@
 const getUsers = async () => {
   try {
-    const videos = await fetch(`http://localhost:5000/users`, {
+    const videos = await fetch(`https://video-streaming-api.vercel.app/users`, {
       next: { revalidate: 1000 },
     });
     const result = await videos.json();

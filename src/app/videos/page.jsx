@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Categories from "@/components/videos/CAtegories";
+import Categories from "@/components/videos/Categories";
 import Videos from "@/components/videos/Videos";
 import SearchBox from "@/components/videos/SearchBox";
 

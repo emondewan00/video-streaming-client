@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCart from "./cart/MovieCart";
+import MovieCart from "./card/MovieCard";
 
 const ActivitesVideos = ({ videos }) => {
   return (

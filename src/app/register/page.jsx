@@ -1,8 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import apiInstance from "@/utils/axios";
-import { useContext, useState } from "react";
-import { AuthContext } from "@/Provider/AuthProvider";
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -10,41 +9,9 @@ const Register = () => {
   const { register, handleSubmit } = useForm();
   const router = useRouter();
   const [registerErr, setRegisterErr] = useState("");
-  const { emailAndPass, updateUser, currentUser } = useContext(AuthContext);
 
-  if (currentUser) return router.push("/");
-
-  const onSubmit = async ({
-    password,
-    confPassword,
-    userName,
-    displayName,
-    photoUrl,
-    email,
-  }) => {
-    try {
-      if (password !== confPassword) {
-        return setRegisterErr("Password not match!");
-      }
-      const name = userName.split(" ").join("");
-      //user details post in server
-      await apiInstance.post("/users", {
-        userName: name,
-        displayName,
-        photoUrl,
-        email,
-      });
-      //create user in firebase
-      const user = await emailAndPass(email, password);
-      //update user details in firebase
-      await updateUser(user.user, displayName, photoUrl);
-      router.push("/");
-    } catch (error) {
-      if (error.response.status === 400) {
-        return setRegisterErr("User Name or Email exists");
-      }
-      return setRegisterErr("Try agin!");
-    }
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (

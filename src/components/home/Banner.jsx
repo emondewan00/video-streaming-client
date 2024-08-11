@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import MovieCart from "../cart/MovieCart";
+import MovieCart from "../card/MovieCard";
 import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 

@@ -1,27 +1,19 @@
 "use client";
-import { AuthContext } from "@/Provider/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
   const router = useRouter();
   const [err, setErr] = useState("");
   const { register, handleSubmit } = useForm();
-  const { signInWithEmailPass, currentUser } = useContext(AuthContext);
 
-  if (currentUser) return router.push("/");
-  const onSubmit = async (doc) => {
-    try {
-      await signInWithEmailPass(doc.email, doc.password);
-      router.push("/");
-    } catch (error) {
-      setErr("Try agin!");
-    }
+  const onSubmit = (data) => {
+    console.log(data);
   };
-  console.log(currentUser);
+
   return (
     <div className="mt-14 mb-20 text-white mx-auto max-w-5xl">
       <div className="grid grid-cols-1 md:grid-cols-2 px-4 md:px-0">

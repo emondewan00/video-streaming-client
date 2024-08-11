@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "../components/NavBar";
 import Footer from "@/components/Footer";
-import AuthProvider from "@/Provider/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,11 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` bg-gradient  ${inter.className}`}>
-        <AuthProvider>
-          <NavBar />
-          <div className="mx-auto">{children}</div>
-          <Footer />
-        </AuthProvider>
+        <NavBar />
+        <div className="mx-auto">{children}</div>
+        <Footer />
       </body>
     </html>
   );

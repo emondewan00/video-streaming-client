@@ -1,6 +1,6 @@
 import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import MovieCart from "../cart/MovieCart";
+import MovieCart from "../card/MovieCard";
 
 const Videos = ({ videos, page, totalPages }) => {
   return (

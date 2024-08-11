@@ -1,9 +1,8 @@
 "use client";
-import { AuthContext } from "@/Provider/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import {
   FaBars,
   FaBell,
@@ -18,15 +17,6 @@ const NavBar = () => {
   //this state use for control in mobile device nav items show and hide
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
-  //get user form context api
-  const { currentUser, logOut } = useContext(AuthContext);
-
-  //log out handler
-  const logOutHandler = () => {
-    logOut();
-  };
-  //this conditin for admin routes becouse in admin route we use another navbar
-  if (path.includes("admin")) return;
 
   return (
     <div className="shadow-2xl text-white">
@@ -114,7 +104,7 @@ const NavBar = () => {
               htmlFor="user-popup"
               className="bg-slate-700 p-4 h-[52px] w-[52px] rounded-full overflow-hidden block cursor-pointer relative"
             >
-              {currentUser?.photoURL && (
+              {/* {currentUser?.photoURL && (
                 <Image
                   width={500}
                   height={500}
@@ -125,7 +115,7 @@ const NavBar = () => {
               )}
               {!currentUser?.photoURL && (
                 <FaUser className="text-xl font-bold" />
-              )}
+              )} */}
             </label>
             <input type="checkbox" className="hidden peer" id="user-popup" />
             {/* user details list  */}
@@ -147,7 +137,7 @@ const NavBar = () => {
                     <FaUserCog /> Admn Panel
                   </Link>
                 </li>
-                {!currentUser && (
+                {/* {!currentUser && (
                   <>
                     <li className="px-3 py-[10px] hover:bg-black/10 transition-all duration-300 delay-100 ease-linear  ">
                       <Link href="/login" className="flex items-center gap-x-2">
@@ -173,7 +163,7 @@ const NavBar = () => {
                       <FaSignOutAlt /> Log Out
                     </button>
                   </li>
-                )}
+                )} */}
               </ul>
             </div>
           </div>
@@ -184,74 +174,6 @@ const NavBar = () => {
       </div>
     </div>
   );
-
-  // return (
-  //   <div className="text-white absolute z-10 w-full bg-slate-800/50 top-0 shadow-xl">
-  //     <nav className=" md:max-w-7xl p-6 container md:flex md:items-center md:justify-between  mx-auto">
-  //       <div className="flex justify-between items-center ">
-  //         <Link
-  //           href="/"
-  //           className="text-2xl hover:text-4xl delay-200 transition-all duration-300 ease-in-out  cursor-pointer"
-  //         >
-  //           MovieHub
-  //         </Link>
-
-  //         <span
-  //           className="text-3xl cursor-pointer mx-2 md:hidden block"
-  //           onClick={menuHandler}
-  //         >
-  //           {/* <HiMenu /> */}
-  //           hello
-  //         </span>
-  //       </div>
-  //       <ul
-  //         className={`md:flex md:items-center bg-primary md:bg-transparent overflow-hidden z-40 md:z-auto absolute md:sticky  w-full left-0  md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100   transition-all ease-in duration-500 gap-2 ${
-  //           nav ? "top-[70px]" : "top-[-400px]"
-  //         }`}
-  //       >
-  //         <li className="me-2">
-  //           <Link href="/">Home</Link>
-  //         </li>
-  //         <li className="me-2">
-  //           <Link href="/videos">Videos</Link>
-  //         </li>
-  //         <li className="me-2">
-  //           <Link href="/pricing">Price</Link>
-  //         </li>
-
-  //         <li className="me-2">
-  //           <Link href="/blogs">Blogs</Link>
-  //         </li>
-  //         {currentUser?.email ? (
-  //           <>
-  //             <li className="me-2">
-  //               <div className="avatar">
-  //                 <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-  //                   <img
-  //                     src={currentUser.photoURL}
-  //                     title={currentUser.displayName}
-  //                     alt={currentUser.displayName}
-  //                   />
-  //                 </div>
-  //               </div>
-  //             </li>
-  //             <li className="me-2">
-  //               <button onClick={logOutHandler} className="my-btn">
-  //                 Logout
-  //               </button>
-  //             </li>
-  //           </>
-  //         ) : (
-  //           <li className="me-2 ">
-  //             <button className="my-btn">
-  //               <Link href="/login">Login</Link>
-  //             </button>
-  //           </li>
-  //         )}
-  //       </ul>
-  //     </nav>
-  //   </div>
-  // );
 };
 
 export default NavBar;

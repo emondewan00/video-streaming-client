@@ -1,6 +1,5 @@
-import MovieCart from "@/components/cart/MovieCart";
+import MovieCard from "@/components/card/MovieCard";
 import getHistorysLikesWatchLaterVideos from "@/utils/getHistorysLikesWatchLaterVideos";
-import React from "react";
 
 const WatchLater = async () => {
   const historys = await getHistorysLikesWatchLaterVideos(
@@ -10,7 +9,7 @@ const WatchLater = async () => {
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
       {historys.data?.videos.map((item) => (
         <div key={item._id}>
-          <MovieCart video={item.video[0]} />
+          <MovieCard video={item.video[0]} />
         </div>
       ))}
     </div>

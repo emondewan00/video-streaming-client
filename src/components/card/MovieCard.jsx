@@ -1,24 +1,11 @@
 "use client";
-import { AuthContext } from "@/Provider/AuthProvider";
-import apiInstance from "@/utils/axios";
 import moment from "moment";
 import Image from "next/image";
-// import postHistory from "@/utils/postHistory";
 import Link from "next/link";
-import React, { useContext } from "react";
 import { FaEllipsisV, FaPlay, FaShare } from "react-icons/fa";
-// import CartLink from "./CartLink";
 
-const MovieCart = ({ video }) => {
-  const { currentUser } = useContext(AuthContext);
-  //post history data on server
-  const postData = async (videoId) => {
-    const res = await apiInstance.post("/history", {
-      videoId,
-      email: currentUser?.email,
-    });
-    return await res.data;
-  };
+const MovieCard = ({ video }) => {
+  
   return (
     <div className="group/play relative text-white shadow-xl shadow-gray-700/20 ">
       <div className="relative h-[130px] overflow-hidden">
@@ -31,7 +18,7 @@ const MovieCart = ({ video }) => {
         <FaPlay className="absolute top-1/2 left-1/2 text-3xl text-gray-400 group-hover/play:text-white group-hover/play:text-4xl transition-all duration-300 delay-100 ease-linear mr-10" />
       </div>
       <Link
-        onClick={() => postData(video._id)}
+       
         href={`/video/${video?._id}`}
         className="absolute top-0 left-0 w-full h-full rounded "
       ></Link>
@@ -65,4 +52,4 @@ const MovieCart = ({ video }) => {
   );
 };
 
-export default MovieCart;
+export default MovieCard;
